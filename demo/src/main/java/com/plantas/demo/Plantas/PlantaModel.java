@@ -1,5 +1,6 @@
 package com.plantas.demo.Plantas;
 
+import com.plantas.demo.Especies.EspecieModel;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,5 +19,5 @@ public class PlantaModel {
 
     @ManyToOne
     @JoinColumn(name="especie_id")
-    private Especie especie;
+    private EspecieModel especie;
 }
