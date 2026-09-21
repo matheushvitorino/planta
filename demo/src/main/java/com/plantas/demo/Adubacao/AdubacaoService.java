@@ -1,5 +1,6 @@
 package com.plantas.demo.Adubacao;
 
+import com.plantas.demo.exceptions.RecursoNaoEncontradoException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,7 +23,7 @@ public class AdubacaoService {
 
     public AdubacaoModel buscarPorId(Long id) {
         return adubacaoRepository.findById(id)
-                .orElseThrow(()->new RuntimeException("Id não encontrado"));
+                .orElseThrow(()->new RecursoNaoEncontradoException("adubacao não encontrada"));
     }
 
     public void deletarPorId(Long id) {

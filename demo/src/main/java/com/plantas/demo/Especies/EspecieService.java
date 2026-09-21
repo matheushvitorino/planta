@@ -1,5 +1,6 @@
 package com.plantas.demo.Especies;
 
+import com.plantas.demo.exceptions.RecursoNaoEncontradoException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,7 +23,7 @@ public class EspecieService {
 
     public EspecieModel buscarPorId(Long id){
         return especieRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Id nao encontrado"));
+                .orElseThrow(() -> new RecursoNaoEncontradoException("especie nao encontrada"));
     }
 
     public void deletarPorId(Long id){

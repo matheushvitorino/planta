@@ -2,6 +2,7 @@ package com.plantas.demo.Plantas;
 
 import com.plantas.demo.Especies.EspecieModel;
 import com.plantas.demo.Especies.EspecieService;
+import com.plantas.demo.exceptions.RecursoNaoEncontradoException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -33,7 +34,7 @@ public class PlantaService {
 
     public PlantaModel buscarPorId(Long id){
         return plantaRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Id nao encontrado"));
+                .orElseThrow(() -> new RecursoNaoEncontradoException("planta nao encontrada"));
     }
 
 

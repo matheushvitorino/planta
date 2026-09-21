@@ -2,6 +2,7 @@ package com.plantas.demo.Regas;
 
 import com.plantas.demo.Plantas.PlantaModel;
 import com.plantas.demo.Plantas.PlantaService;
+import com.plantas.demo.exceptions.RecursoNaoEncontradoException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -30,7 +31,7 @@ public class RegaService {
     }
     public RegaModel buscarPorId(Long id){
         return regaRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Id nao encontrado"));
+                .orElseThrow(() -> new RecursoNaoEncontradoException("rega nao encontrada"));
     }
 
     public void deletarPorId(Long id){
