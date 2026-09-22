@@ -2,6 +2,7 @@ package com.plantas.demo.Plantas;
 
 import com.plantas.demo.Especies.EspecieModel;
 import com.plantas.demo.Especies.EspecieService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,7 +15,7 @@ public class PlantaController {
     private PlantaService plantaService;
 
     @PostMapping
-    public PlantaModel salvar(@RequestBody PlantaModel planta){
+    public PlantaModel salvar(@Valid @RequestBody PlantaModel planta){
         return plantaService.salvar(planta);
     }
 
@@ -34,7 +35,7 @@ public class PlantaController {
     }
 
     @PutMapping("/{id}")
-    public PlantaModel atualizar(@PathVariable Long id,@RequestBody PlantaModel planta){
+    public PlantaModel atualizar(@PathVariable Long id,@Valid @RequestBody PlantaModel planta){
         return plantaService.atualizar(id, planta);
     }
 }

@@ -1,5 +1,6 @@
 package com.plantas.demo.Adubacao;
 
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,7 +13,7 @@ public class AdubacaoController {
     private AdubacaoService adubacaoService;
 
     @PostMapping
-    public AdubacaoModel salvar(@RequestBody AdubacaoModel adubacaoModel){
+    public AdubacaoModel salvar(@Valid @RequestBody AdubacaoModel adubacaoModel){
         return  adubacaoService.salvar(adubacaoModel);
 
     }

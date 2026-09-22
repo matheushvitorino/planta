@@ -1,5 +1,6 @@
 package com.plantas.demo.Especies;
 
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,7 +13,7 @@ public class EspecieController {
     private EspecieService especieService;
 
     @PostMapping
-    public EspecieModel salvar(@RequestBody EspecieModel especie){
+    public EspecieModel salvar(@Valid @RequestBody EspecieModel especie){
         return especieService.salvar(especie);
     }
 
@@ -32,7 +33,7 @@ public class EspecieController {
     }
 
     @PutMapping("/{id}")
-    public EspecieModel atualizar(@PathVariable Long id,@RequestBody EspecieModel especie){
+    public EspecieModel atualizar(@PathVariable Long id,@Valid @RequestBody EspecieModel especie){
         return especieService.atualizar(id, especie);
     }
 }

@@ -1,5 +1,6 @@
 package com.plantas.demo.Regas;
 
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,7 +13,7 @@ public class RegaController {
     private RegaService regaService;
 
     @PostMapping
-    public RegaModel salvar(@RequestBody RegaModel regaModel){
+    public RegaModel salvar(@Valid @RequestBody RegaModel regaModel){
         return regaService.salvar(regaModel);
     }
 
